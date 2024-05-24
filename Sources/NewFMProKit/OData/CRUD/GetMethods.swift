@@ -19,7 +19,7 @@ extension FMOdataApi {
         let responseData = try await fetchData(for: request)
         return try decodeResponse(responseData, to: T.self)
     }
-
+    
     func getRecord<T: Codable>(table: String, id: String, to type: T.Type) async throws -> T {
         let url = baseURL.appendingPathComponent("\(table)('\(id)')")
         var request = URLRequest(url: url)
@@ -28,4 +28,4 @@ extension FMOdataApi {
         let responseData = try await fetchData(for: request)
         return try decodeResponse(responseData, to: T.self)
     }
-    
+}
