@@ -7,7 +7,9 @@
 
 import Foundation
 
-import Foundation
+struct JSONValue <T: Codable>: Codable {
+    var value: T
+}
 
 /// Enumeration of all the possible filterOption of an OData query
 public enum FilterOption: String {
@@ -44,7 +46,6 @@ public enum Order: String {
 protocol FileMakerProtocol {
     var baseURL: URL { get }
     var basicAuthCredentials: (username: String, password: String)? { get set }
-    var baseUri: String { get }
     var version: ProtocolVersion { get }
     var database: String { get }
 

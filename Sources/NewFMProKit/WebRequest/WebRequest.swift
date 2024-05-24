@@ -11,7 +11,7 @@ import Foundation
 @available(macOS 12.0, *)
 internal extension FMOdataApi {
     
-    func sendRequest<T: Decodable>(_ endpoint: String, method: HTTPMethod, responseType: T.Type, data: [String: Any]? = nil) async throws -> T {
+    func sendRequest<T: Codable>(_ endpoint: String, method: HTTPMethod, responseType: T.Type, data: [String: Any]? = nil) async throws -> T {
         let url = baseURL.appendingPathComponent(endpoint)
         var request = URLRequest(url: url)
         request.httpMethod = method.rawValue
